@@ -16,7 +16,7 @@ def get_users():
 
 def get_user_by_email(email):
 
-    return User.query.filter_by(email = email).first()
+    return User.query.filter(User.email == email).first()
 
 def create_plant(common_name, scientific_name, preferred_light, watering_needs, preferred_soil, plant_img):
 

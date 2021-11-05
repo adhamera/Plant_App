@@ -1,0 +1,57 @@
+body {
+    background-color: #eeeeee;
+    color: #333333;
+    margin-top: 2rem;
+    height: 100%;
+    font-family: 'Futura', sans-serif;
+    text-align: left;
+    min-height: 75rem;
+    padding-top: 4.0rem;
+    background-image: url("/static/back_img/homepage.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center top;
+    background-color: #2a5236;
+}
+div {
+    display: block;
+}
+form { 
+    margin: 0 auto; 
+    width:200px;
+}
+.to-left-form{
+    margin: 15px; 
+    widows: 200px;
+}
+h1,h2,h3,h4,h5 {
+    font-family: 'Futura';
+    margin: 0 auto; 
+    width:200px;
+}
+
+ul li {
+    margin: 0 auto; 
+    width:200px;
+  }
+p {
+    font-size: 18px;
+    font-family: 'Proxima Nova';
+    margin: 0 auto; 
+    width:200px;
+}
+
+img {
+    margin: 0 auto; 
+    width:200px;
+}
+.navbar-default {
+    background-color:#22412b;
+}
+.navbar-brand {
+    color: #d7e7d2;
+    font-weight: bold;
+}
+.navbar-nav .nav-link {
+    color: #d7e7d2;
+}

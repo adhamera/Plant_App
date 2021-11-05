@@ -10,7 +10,6 @@ class User(db.Model):
     user_id = db.Column(db.Integer, primary_key=True, autoincrement= True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(30), nullable=False)
-    first_name = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email}>'
@@ -22,7 +21,7 @@ class Plant(db.Model):
 
     plant_id = db.Column(db.Integer, primary_key=True, autoincrement= True)
     common_name = db.Column(db.String, nullable=False)
-    scientific_name = db.Column(db.String(30), nullable=False, unique=True)
+    scientific_name = db.Column(db.String(50), nullable=False, unique=True)
     preferred_light = db.Column(db.String, nullable=False)
     watering_needs = db.Column(db.String, nullable=False)
     preferred_soil = db.Column(db.String, nullable=False)

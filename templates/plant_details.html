@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ plant.common_name }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ plant.common_name }}</h1>
+
+<p>
+  {{ plant.scientific_name }}
+</p>
+
+<!-- {% if session.get('user_email') %}
+<h2>Rate this movie</h2>
+<form action="/movies/{{ movie.movie_id }}/ratings" method="POST">
+  <p>
+    Rating:
+    <select name="rating">
+      <option value="">Select rating</option>
+      {% for num in range(6) %}
+        <option value="{{ num }}">{{ num }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p><input type="submit"></p>
+</form>
+{% endif %} -->
+<p>
+  {{ plant.preferred_light }}
+</p>
+<p>
+  {{ plant.watering_needs }}
+</p>
+<p>
+  {{ plant.preferred_soil}}
+</p>
+
+<img src="{{ plant.plant_img }}">
+{% endblock %}
