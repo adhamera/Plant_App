@@ -7,6 +7,13 @@
   <li><a href="/plants">View all plants</a></li>
   <li><a href="/users">View all users</a></li>
 </ul>
+<h2>Plant Search</h2>
+
+<form autocomplete="off" action="/plant_details" >
+    <input onkeyup="showPlantResults(this.value)" id="plant_input" type="text" name="plantsearch" placeholder="Search for Plant">
+  <!-- <input type="submit"> -->
+    <div style="width:300px;" id="result"></div>
+</form>
 
 <h2>Create an Account</h2>
   <form action="/users" method="POST">

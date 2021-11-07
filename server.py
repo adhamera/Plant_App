@@ -84,7 +84,6 @@ def process_login():
 
     return redirect("/")
 
-
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
     connect_to_db(app)
