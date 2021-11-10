@@ -1,4 +1,4 @@
-const search_plants = ["Zebra Plant", "Jade Plant", "Crown of Thorns", "Weeping Fig", "Sago Palm", "Golden Pothos", "Snake Plant", "Wax Plant Begonia", "Umbrella Plant", "Arrowhead Plant"]
+const search_plants = ["Zebra Plant", "Jade Plant", "Crown of Thorns", "Weeping Fig", "Sago Palm", "Golden Pothos", "Snake Plant", "Prayer Plant", "Wax Plant Begonia", "Umbrella Plant", "Arrowhead Plant", "Rabbit's Foot Fern", "Peace Lily", "ZZ plant", "Parlor Palm", "Rubber Plant", "Ti Plant", "Flamingo Flower", "Buddhist Pine", "Cape fuchsia Cherry Ripe", "Touch Me Not", "Aloe vera", "Lucky Bamboo", "Sweet Alyssum", "Poinsettia"]
 const linkList = []
 function givePlantLinks(plant){
     return search_plants.indexOf(plant) + 1

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ plant.common_name }} - Details{% endblock %}
+{% block title %}{{ plant.common_name }}{% endblock %}
 
 {% block body %}
 <h1>{{ plant.common_name }}</h1>
@@ -19,4 +19,41 @@
 </p>
 
 <img src="/static/img/{{ plant.plant_img }}">
+
+<form action="/plants/{{ plant.plant_id }}/add" name="Add Plant" method="POST">
+<label for="Growth">Choose your plant's life cycle stage: </label>
+  <select name="growths">
+    {% for growth in growths %}
+    <option value="{{ growth }}" SELECTED>{{ growth }}</option>
+    {% endfor %}   
+  </select>
+<label for="Condition">Choose your plant's condition: </label>
+  <select name="conditions">
+    {% for condition in conditions %}
+    <option value="{{ condition }}" SELECTED>{{ condition }}</option>
+    {% endfor %}   
+  </select>
+<label for="Light">What is your plant's current light condition?</label>
+  <select name="lights">
+    {% for light in lights %}
+    <option value="{{ light}}" SELECTED>{{ light}}</option>
+    {% endfor %}   
+  </select>
+<label for="Soil">What is your plant's current soil condition? </label>
+  <select name="soils">
+    {% for soil in soils %}
+    <option value="{{ soil }}" SELECTED>{{ soil }}</option>
+    {% endfor %}   
+  </select>
+<label for="Water">Select the level of water your plant received: </label>
+  <select name="waterneeds">
+    {% for water in waterneeds %}
+    <option value="{{ water}}" SELECTED>{{ water }}</option>
+    {% endfor %}   
+  </select>
+  <p>
+    <input type="submit">
+  </p>
+</form>
+
 {% endblock %}

@@ -1,16 +1,31 @@
+
 {% extends 'base.html' %}
-{% block title %}All Plants{% endblock %}
 
 {% block body %}
-  <h1>All Plants</h1>
-
-  <ul>
-    {% for plant in plants %}
-      <li>
-        <a href="/plants/{{ plant.plant_id }}">
-          {{ plant.common_name }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+<div class="container mt-4">
+	<h1>All Plants</h1>
+  <div class="row">
+		{% for plant in plants %}
+			<div class="col-lg-3 col-md-7 col-sm-12 col-xs-12 pb-4">
+				<div class="card shadow-sm">
+          <style>
+            p {text-align: center;}
+            </style>
+					<img src="/static/img/{{ plant.plant_img }}" class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+					<p class="card-text"><b>{{ plant.common_name }} </b></p>
+          <p class="card-text">{{ plant.scientific_name }}</p>
+					<div class="card-body">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<a href="/plants/{{ plant.plant_id }}">
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+  </div>
+</div>
 {% endblock %}

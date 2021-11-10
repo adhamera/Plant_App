@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Plant Search {% endblock %}
+{% block body %}
+<h1>Welcome!</h1>
+<h2 class="searchbar">Plant Search</h2>
+
+<form autocomplete="off" action="/plant_details" >
+    <input onkeyup="showPlantResults(this.value)" id="plant_input" type="text" name="plantsearch" placeholder="Search for Plant">
+    <!-- <input type="submit"> -->
+    <div style="width:300px;" id="result"></div>
+</form>
+
+{% endblock %}

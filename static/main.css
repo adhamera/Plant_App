@@ -56,3 +56,14 @@ img {
 .navbar-nav .nav-link {
     color: #d7e7d2;
 }
+
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+}
+
+h2.searchbar {
+    /* text-align: center; */
+    margin-top: 7em;
+    color: #22412b;
+}

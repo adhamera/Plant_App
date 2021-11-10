@@ -59,6 +59,16 @@ def create_user_plant(user, plant, plant_life_cycle, date_plant_added, current_l
     db.session.add(user_plant)
     db.session.commit()
 
+    return user_plant
+
+def find_user_plant(user_id):
+
+    return User_Plant.query.filter(User.user_id == user_id).all()
+
+# def find_user_plant_details(users_plants_id):
+
+#     return User_Plant.query.filter(User_Plant.users_plants_id == users_plants_id).all()
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

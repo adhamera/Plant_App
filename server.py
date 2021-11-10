@@ -8,31 +8,54 @@ app.jinja_env.undefined = StrictUndefined
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
-# Replace this with routes and view functions!
+# route to homepage
 @app.route('/')
 def homepage():
     """View homepage."""
 
     return render_template('homepage.html')
 
+# display all plants which exist in the database
 @app.route("/plants")
 def all_plants():
-    """View all movies."""
+    """View all plants."""
 
     plants = crud.get_plants()
 
     return render_template("all_plants.html", plants=plants)
 
-
+# view plant by plant id 
 @app.route("/plants/<plant_id>")
 def show_plant(plant_id):
-    """Show details on a particular movie."""
+    """Show details on a particular plant."""
 
     plant = crud.get_plant_by_id(plant_id)
+    growths = ["seed", "sprout", "plantlet", "adult plant"]
+    conditions = ["healthy", "brown leaves", "black spots", "wilting", "dying"]
+    lights = ["Indirect sunlight", "Full sun", "Full sun to part shade", "Part shade", "Part shade to full shade", "Part sun to part shade" ]
+    soils = ["Moist", "Well-drained", "Rich, fast-draining", "Sandy, moist, well-drained", "Moist, well-drained", "Sandy, well-drained", "Rich, moist, well-drained", "Rich, moderately moist", "Rich, loamy", "Loamy, sandy", "Rich, well-drained", "Rich, moist", "Sandy", "Loamy, well-drained" ]
+    waterneeds = ["Medium", "Low", "Low to medium", "High", "Medium to high"]
+    return render_template("plant_details.html", plant=plant, growths=growths, conditions=conditions, lights=lights, soils=soils, waterneeds=waterneeds)
 
-    return render_template("plant_details.html", plant=plant)
+# allow users to enter their plants' data and save plant(s) to user_plants route
+@app.route("/plants/<plant_id>/add", methods=["POST"])
+def add_plant(plant_id):
+    print(plant_id)
+    growths = request.form.get("growths")
+    lights = request.form.get("lights")
+    soils = request.form.get("soils")
+    waterneeds = request.form.get("waterneeds")
 
+    email = session["user_email"]
+    user= crud.get_user_by_email(email)
+    plant = crud.get_plant_by_id(plant_id)
+ 
+    user_plant = crud.create_user_plant(user, plant, plant_life_cycle=growths, date_plant_added="2021-11-09", current_light=lights, soil_status=soils, water_status=waterneeds)
+    print(user_plant)
+    return redirect("/user_plants")
+   
 
+# display all registered users in users route
 @app.route("/users")
 def all_users():
     """View all users."""
@@ -41,6 +64,7 @@ def all_users():
 
     return render_template("all_users.html", users=users)
 
+# creating/registering user by email and password. Directing user to homepage if email or password is incorrect
 @app.route("/users", methods=["POST"])
 def register_user():
 
@@ -56,8 +80,7 @@ def register_user():
 
     return redirect("/")
 
-
-
+# displaying user by user id
 @app.route("/users/<user_id>")
 def show_user(user_id):
     """Show details on a particular user."""
@@ -66,7 +89,7 @@ def show_user(user_id):
 
     return render_template("user_details.html", user=user)
 
-
+# create user login & authenticating username and password
 @app.route("/login", methods=["POST"])
 def process_login():
     """Process user login."""
@@ -77,12 +100,41 @@ def process_login():
     user = crud.get_user_by_email(email)
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
+        return redirect("/")
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         flash(f"Welcome back, {user.email}!")
 
-    return redirect("/")
+        return redirect("/dashboard")
+        
+# display plant associated with specific user
+@app.route("/user_plants")
+def user_plants():
+    """View all users' plants."""
+    email = session["user_email"]
+    user = crud.get_user_by_email(email)
+    user_plants = crud.find_user_plant(user.user_id)
+    print(user_plants)
+
+    return render_template("user_plants.html", user_plants=user_plants)
+
+# @app.route("/user_plants/details")
+# def user_plants_details():
+#     """View all users' plants details."""
+#     email = session["user_email"]
+#     user = crud.get_user_by_email(email)
+#     user_plants_details = crud.find_user_plant_details(user.users_plants_id)
+#     print(user_plants_details)
+
+#     return render_template("user_plants_details.html", user_plants_details=user_plants_details)
+
+
+@app.route("/dashboard")
+def dashboard():
+    """User can view the profile dashboard"""
+
+    return render_template("dashboard.html")
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
