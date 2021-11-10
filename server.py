@@ -107,7 +107,7 @@ def process_login():
         flash(f"Welcome back, {user.email}!")
 
         return redirect("/dashboard")
-        
+
 # display plant associated with specific user
 @app.route("/user_plants")
 def user_plants():
@@ -119,15 +119,15 @@ def user_plants():
 
     return render_template("user_plants.html", user_plants=user_plants)
 
-# @app.route("/user_plants/details")
-# def user_plants_details():
-#     """View all users' plants details."""
-#     email = session["user_email"]
-#     user = crud.get_user_by_email(email)
-#     user_plants_details = crud.find_user_plant_details(user.users_plants_id)
-#     print(user_plants_details)
+@app.route("/user_plants/<users_plants_id>")
+def user_plants_details(users_plants_id):
+    """View all users' plants details."""
+    # email = session["user_email"]
+    # user = crud.get_user_by_email(email)
+    user_plants_details = crud.find_user_plant_details(users_plants_id)
+    print(user_plants_details)
 
-#     return render_template("user_plants_details.html", user_plants_details=user_plants_details)
+    return render_template("user_plants_details.html", user_plant=user_plants_details)
 
 
 @app.route("/dashboard")
