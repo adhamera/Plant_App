@@ -28,4 +28,21 @@
 			</div>
   </div>
 </div>
+<form action="/user_plants/{{ user_plant.users_plants_id }}", method="POST">
+<label for="Growth">Choose your plant's life cycle stage: </label>
+  <select name="growths">
+    {% for growth in growths %}
+    <option value="{{ growth }}" SELECTED>{{ growth }}</option>
+    {% endfor %}   
+  </select>
+<label for="Condition">Choose your plant's condition: </label>
+  <select name="conditions">
+    {% for condition in conditions %}
+    <option value="{{ condition }}" SELECTED>{{ condition }}</option>
+    {% endfor %}   
+  </select>
+	<textarea name="plant_note">
+		Enter text here...</textarea>
+	<input type="submit">
+  </form>
 {% endblock %}

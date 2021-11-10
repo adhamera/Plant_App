@@ -36,12 +36,14 @@ def get_plant_by_id(plant_id):
 
     return Plant.query.get(plant_id)
 
-def create_plant_note(users_plants, plant_note, plant_note_date, form_growth, form_condition):
+def create_plant_note(users_plants, plant_note, form_growth, form_condition):
 
-    plant_note = Plant_Note(users_plants=users_plants, plant_note=plant_note, plant_note_date=plant_note_date, form_growth=form_growth, form_condition=form_condition)
+    plant_note = Plant_Note(users_plants=users_plants, plant_note=plant_note, plant_note_date="2021-11-10", form_growth=form_growth, form_condition=form_condition)
 
     db.session.add(plant_note)
     db.session.commit()
+
+    return plant_note 
 
 def get_plant_notes():  #unsure if I need these functions
     """Return all plant notes."""
@@ -68,6 +70,10 @@ def find_user_plant(user_id):
 def find_user_plant_details(users_plants_id):
 
     return User_Plant.query.filter(User_Plant.users_plants_id == users_plants_id).first()
+
+def find_user_plant_note(plant_note_id):
+
+    return Plant_Note.query.filter(Plant_Note.plant_note_id == plant_note_id).first()
 
 if __name__ == '__main__':
     from server import app

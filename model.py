@@ -91,9 +91,9 @@ class Plant_Note(db.Model):
     # create table column for plant_note_date as a string
     plant_note_date = db.Column(db.DateTime, nullable=False)
     # create table column for form_growth as a string
-    form_growth = db.Column(db.Integer, nullable=False)
+    form_growth = db.Column(db.String, nullable=False)
     # create table column for form_condition as a string
-    form_condition = db.Column(db.Integer, nullable=False)
+    form_condition = db.Column(db.String, nullable=False)
 
     # Create SQLAlchemy relationship between user_plants and plant_notes
     users_plants = db.relationship("User_Plant", backref="plant_notes")
