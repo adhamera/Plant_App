@@ -65,7 +65,12 @@ def all_users():
     return render_template("all_users.html", users=users)
 
 # creating/registering user by email and password. Directing user to homepage if email or password is incorrect
-@app.route("/users", methods=["POST"])
+@app.route("/signup", methods=["GET"])
+def show_signup_form():
+
+    return render_template("signup.html")
+
+@app.route("/signup", methods=["POST"])
 def register_user():
 
     email = request.form.get("email")
@@ -124,12 +129,10 @@ def user_plants_details(users_plants_id):
     """View all users' plants details."""
     # email = session["user_email"]
     # user = crud.get_user_by_email(email)
-    growths = ["seed", "sprout", "plantlet", "adult plant"]
-    conditions = ["healthy", "brown leaves", "black spots", "wilting", "dying"]
     user_plants_details = crud.find_user_plant_details(users_plants_id)
     print(user_plants_details)
 
-    return render_template("user_plants_details.html", user_plant=user_plants_details, growths=growths, conditions=conditions)
+    return render_template("user_plants_details.html", user_plant=user_plants_details, user_plant_notes=None)
 
 @app.route("/user_plants/<users_plants_id>", methods=["POST"])
 def user_plant_notes(users_plants_id):
@@ -139,9 +142,10 @@ def user_plant_notes(users_plants_id):
     plant_note = request.form.get("plant_note")
     user_plant = crud.find_user_plant_details(users_plants_id)
     user_plant_notes = crud.create_plant_note(users_plants=user_plant, plant_note=plant_note, form_growth=growths, form_condition=conditions)
-    print(user_plant_notes)
+    # print(user_plant_notes)
 
-    return redirect(f"/user_plants/{users_plants_id}")
+    # return redirect(f"/user_plants/{users_plants_id}")
+    return render_template("user_plants_details.html", user_plant=user_plant, user_plant_notes=user_plant_notes)
     #query user plant with plant_note_id, pass this to plant template and loop over it to show all notes in the system
 @app.route("/dashboard")
 def dashboard():

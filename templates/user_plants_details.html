@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
-
+{% block head %}
+	{# ChartJS #}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js"></script>
+{% endblock %}
 {% block body %}
+<canvas id="plant-chart"></canvas>
+<script>
+    const testChart = new Chart(
+      $('#plant-chart'),
+      {
+        type: 'bar',
+        data: {
+          labels: ['does', 'this', 'work'],
+          datasets: [
+            {data: [2, 4, 8]}
+          ]
+        }
+      }
+    );
+  </script>
 <div class="container mt-4">
 	<h1>All User Plants</h1>
   <div class="row">
@@ -11,10 +29,10 @@
             </style>
 					<img src="/static/img/{{ user_plant.plant.plant_img }}" class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
 					<p class="card-text"><b>{{ user_plant.plant.common_name }} </b></p>
-          			<p class="card-text">{{ user_plant.current_light}}</p>
-					<p class="card-text">{{ user_plant.soil_status}}</p>
-					<p class="card-text">{{ user_plant.water_status}}</p>
-					<p class="card-text">{{ user_plant.date_plant_added }}</p>
+          			<p class="card-text"> Current Light: {{ user_plant.current_light}}</p>
+					<p class="card-text"> Soil Status: {{ user_plant.soil_status}}</p>
+					<p class="card-text"> Water Status: {{ user_plant.water_status}}</p>
+					<p class="card-text"> Date Plant Added: {{ user_plant.date_plant_added }}</p>
 					<div class="card-body">
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">
@@ -28,21 +46,36 @@
 			</div>
   </div>
 </div>
+{% if user_plant_notes %}  
+<div>{{user_plant_notes.plant_note}}</div>
+<div> {{user_plant_notes.form_growth}} </div>  
+<div> {{user_plant_notes.form_condition}} </div>
+
+{% endif %}
+
 <form action="/user_plants/{{ user_plant.users_plants_id }}", method="POST">
 <label for="Growth">Choose your plant's life cycle stage: </label>
   <select name="growths">
-    {% for growth in growths %}
-    <option value="{{ growth }}" SELECTED>{{ growth }}</option>
-    {% endfor %}   
+    <option value="seed" SELECTED>seed</option>
+	<option value="sprout" SELECTED>sprout</option>
+	<option value="plantlet" SELECTED>plantlet</option>
+	<option value="adult plant" SELECTED>adult plant</option>
+	
   </select>
 <label for="Condition">Choose your plant's condition: </label>
   <select name="conditions">
-    {% for condition in conditions %}
-    <option value="{{ condition }}" SELECTED>{{ condition }}</option>
-    {% endfor %}   
+	<option value="healthy" SELECTED>healthy</option> 
+	<option value="brown leaves" SELECTED>brown leaves</option>
+	<option value="black spots" SELECTED>black spots</option>
+	<option value="wilting" SELECTED>wilting</option>
+	<option value="dying" SELECTED>dying</option>
   </select>
 	<textarea name="plant_note">
 		Enter text here...</textarea>
 	<input type="submit">
   </form>
 {% endblock %}
+
+{% block after_body %}
+<script src="/static/chart.js"></script>
+{% endblock %} 
