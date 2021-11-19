@@ -7,11 +7,13 @@ body {
     text-align: left;
     min-height: 75rem;
     padding-top: 4.0rem;
-    background-image: url("/static/back_img/homepage.png");
+    /* background-image: url("/static/back_img/homepage.png"); */
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center top;
     background-color: #2a5236;
+    background: url("indoor_plant.jpg") no-repeat;
+      background-size: cover;
 }
 div {
     display: block;
@@ -28,6 +30,17 @@ h1,h2,h3,h4,h5 {
     font-family: 'Futura';
     margin: 0 auto; 
     width:200px;
+}
+
+h1.welcome {
+    margin-top: 2em;
+    color: #fcfcfc;
+}
+
+h1.signup_page {
+    margin-top: 2em;
+    color: #fcfcfc;
+    
 }
 
 ul li {
@@ -47,7 +60,7 @@ img {
     width:200px;
 }
 .navbar-default {
-    background-color:#22412b;
+    background-color:#7f9b74;
 }
 .navbar-brand {
     color: #d7e7d2;
@@ -67,3 +80,38 @@ h2.searchbar {
     margin-top: 7em;
     color: #22412b;
 }
+h2.login {
+    /* text-align: center; */
+    margin-top: 4em;
+    color: #fcfcfc;
+}
+h2.signup {
+    /* text-align: center; */
+    margin-top: 4em;
+    color: #fcfcfc;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background:rgb(119, 131, 115); 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    color: white
+}
+
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  @media (max-width: 750px) {
+    #background-video { display: none; }
+  }

@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
+from datetime import datetime
 import crud
 from jinja2 import StrictUndefined
 app = Flask(__name__)
@@ -50,7 +51,7 @@ def add_plant(plant_id):
     user= crud.get_user_by_email(email)
     plant = crud.get_plant_by_id(plant_id)
  
-    user_plant = crud.create_user_plant(user, plant, plant_life_cycle=growths, date_plant_added="2021-11-09", current_light=lights, soil_status=soils, water_status=waterneeds)
+    user_plant = crud.create_user_plant(user, plant, plant_life_cycle=growths, date_plant_added=datetime.today(), current_light=lights, soil_status=soils, water_status=waterneeds)
     print(user_plant)
     return redirect("/user_plants")
    
@@ -64,12 +65,13 @@ def all_users():
 
     return render_template("all_users.html", users=users)
 
-# creating/registering user by email and password. Directing user to homepage if email or password is incorrect
+
 @app.route("/signup", methods=["GET"])
 def show_signup_form():
 
     return render_template("signup.html")
 
+# creating/registering user by email and password. Directing user to homepage if email or password is incorrect
 @app.route("/signup", methods=["POST"])
 def register_user():
 
@@ -129,10 +131,12 @@ def user_plants_details(users_plants_id):
     """View all users' plants details."""
     # email = session["user_email"]
     # user = crud.get_user_by_email(email)
+    user_plant_notes = crud.get_note_by_user_plant_id(users_plants_id)
+    print(user_plant_notes)
     user_plants_details = crud.find_user_plant_details(users_plants_id)
     print(user_plants_details)
 
-    return render_template("user_plants_details.html", user_plant=user_plants_details, user_plant_notes=None)
+    return render_template("user_plants_details.html", user_plant=user_plants_details, user_plant_notes=user_plant_notes)
 
 @app.route("/user_plants/<users_plants_id>", methods=["POST"])
 def user_plant_notes(users_plants_id):
@@ -145,8 +149,17 @@ def user_plant_notes(users_plants_id):
     # print(user_plant_notes)
 
     # return redirect(f"/user_plants/{users_plants_id}")
-    return render_template("user_plants_details.html", user_plant=user_plant, user_plant_notes=user_plant_notes)
+    return render_template("user_plants_details.html", user_plant=user_plant, user_plant_notes=None)
     #query user plant with plant_note_id, pass this to plant template and loop over it to show all notes in the system
+
+@app.route("/conditiondata")
+def condititiondata():
+
+    users_plants_id = session['users_plants_id']
+    condition_data = crud.get_note_by_user_plant_id(users_plants_id)
+
+    return jsonify(condition_data)
+    
 @app.route("/dashboard")
 def dashboard():
     """User can view the profile dashboard"""

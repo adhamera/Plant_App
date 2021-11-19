@@ -54,6 +54,10 @@ def get_plant_note_by_id(plant_note_id):
 
     return Plant_Note.query.get(plant_note_id)
 
+def get_note_by_user_plant_id(users_plants_id):
+
+    return Plant_Note.query.filter(Plant_Note.users_plants_id == users_plants_id).all()
+
 def create_user_plant(user, plant, plant_life_cycle, date_plant_added, current_light, soil_status, water_status):
 
     user_plant = User_Plant(user=user, plant=plant, plant_life_cycle=plant_life_cycle, date_plant_added=date_plant_added, current_light=current_light, soil_status=soil_status, water_status=water_status)

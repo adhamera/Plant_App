@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 {% block title %} Plantlet Home {% endblock %}
 {% block body %}
-<h1>Welcome!</h1>
-
-<h2>Log In</h2>
+<h1 class="welcome">Welcome to Plantlet!</h1>
+<h2 class="login">Log In</h2>
 <form action="/login" method="POST">
-  <p>
-    Email <input type="text" name="email">
-  </p>
-
-  <p>
-    Password <input type="password" name="password">
-  </p>
-
-  <p>
-    <input type="submit">
-  </p>
+  <div class="mb-3">
+    <label for="inputEmail" class="form-label" style="color: white">Email address</label>
+      <input type="email" name = "email" class="form-control" id="email">
+  </div>
+  <div class="mb-3">
+    <label for="inputPassword" class="form-label" style="color: white">Password</label>
+    <input type="password" name ="password" class="form-control" id="password">
+  </div>
+  <button type="submit" class="btn btn-primary" style="background-color:rgb(119, 131, 115)" >Submit</button>
   <a class="dropdown-item" href="/signup"> Don't have an account? Sign up! </a>
 </form>
 {% endblock %}

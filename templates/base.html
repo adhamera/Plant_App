@@ -18,6 +18,9 @@
 
     {% endblock %}
   </head>
+  <video id="background-video" autoplay loop >
+    <source src="/static/indoor_plant.mp4" type="video/mp4">
+  </video>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-default">
       <div class="container">
@@ -28,6 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
             <a class="nav-link" href="{{ url_for('homepage') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('show_signup_form') }}">Sign Up</a>
             <a class="nav-link" href="{{ url_for('all_plants') }}">All Plants</a>
           </div>
             <!-- navbar right -->
