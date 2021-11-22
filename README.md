@@ -1,10 +1,10 @@
-## Project Proposal
+## Project Proposal🌱
 
 ### Video Demo
 
 Link:
 
-### Overview
+### Overview🌿
 
 Plant care made easy!
 
