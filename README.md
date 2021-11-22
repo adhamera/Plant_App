@@ -12,16 +12,16 @@ Plantlet is a plant care application which allows users to browse indoor plants,
 store data regarding their plant(s)'s current condition and graphically track their plant's progress over time. 
 
 
-### Technologies required (besides typical Hackbright tech stack)
+### Technologies Used
 
 - Python (flask)
 - Jinja
 - JavaScript
+- PostgreSQL
+- RESTful API
 - Bootstrap
 - CSS
 - HTML
-- PostgreSQL
-- RESTful API
 
 ### Python Libraries Used
 
