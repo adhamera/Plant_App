@@ -25,10 +25,13 @@ store data regarding their plant(s)'s current condition and graphically track th
 
 ### Python Libraries Used
 
-
 - Flask Bootstrap - Style
 - Datetime - Date and Time
 - Werkseug - Security
+
+### JavaScript Library Used
+
+- Chart.js
 
 
 ### Data
