@@ -110,6 +110,33 @@ def connect_to_db(app):
     db.app = app
     db.init_app(app)
 
+def example_data():
+    """Create some sample data."""
+
+    # In case this is run more than once, empty out existing data
+    User.query.delete()
+    Plant.query.delete()
+
+    # Add sample employees and departments
+    test_user = User(user_id=1, 
+            email="user1@test.com",
+            password="testing",)
+
+    new_plant = Plant(plant_id=3, 
+                    name="plant", 
+                    common_name="Alow Vera", 
+                    scientific_name="Aloe Vera", 
+                    plant_img="aloe_vera.png",
+                    preferred_soil= "moist",
+                    preferred_light="full sun",
+                    watering_needs= "medium" )
+
+
+
+
+    db.session.add_all([test_user, new_plant])
+    db.session.commit()
+
 if __name__ == "__main__":
     from server import app
     connect_to_db(app) 
