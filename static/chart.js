@@ -1,37 +1,56 @@
 
    
 'use strict';
+
+// PLANT CONDITION LINE GRAPH
 let user_plant_info = document.getElementById('users_plants_id').value 
-console.log(user_plant_info)
-$.get('/conditiondata', (res) => {
-    let ConditionData = res;
 
-    let condition = document.getElementById('conditonChart');
-    let conditionChart = new Chart(condition, {
-        type: 'bar',
-        data: {
-            labels: ["healthy", "brown leaves", "black spots", "wilting", "dying"],
-            datasets: [
-                {
-                    backgroundColor: [],
-                    data: ConditionData
+$.get(`/conditiondata/${user_plant_info}`, res => {
+
+    const conditions = {'healthy': 4, 'brown leaves': 3, 'black spots': 2, 'wilting': 1, 'dying': 0} // and so on
+    const conditions_reverse = {4:'healthy', 3:'brown leaves', 2:'black spots', 1:'wilting', 0:'dying'}
+    const data = [];
+        for (const dailyCondition of res.data) {
+        // show conditions on y axis
+        data.push({x: dailyCondition.date, y: conditions[dailyCondition.plant_condition]});
+  }
+  
+    new Chart($('#conditionChart'), {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Plant Condition',
+            data,  // equivalent to data: data
+            backgroundColor: "#FF0000"
+          },
+        ],
+      },
+      options: {
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              // Luxon format string
+              tooltipFormat: 'LLLL dd',
+              unit: 'day',
+            },
+          },
+          y: {
+            ticks: {
+              backgroundColor: "#FF0000",
+              callback: function(label, index, labels) {
+                if (label in conditions_reverse) {
+                  return conditions_reverse[label];
                 }
-            ]
+                else {
+                  return " ";
+                }
+              }
+            }
+          }
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            legend: { display: false },
-            title: {
-                display: true,
-                text: 'Weekly Condition Data'
-            },
-        }
+      },
     });
-});
-
+  });
+  

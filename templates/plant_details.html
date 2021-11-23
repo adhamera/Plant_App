@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
-
 {% block title %}{{ plant.common_name }}{% endblock %}
-
 {% block body %}
-<h1>{{ plant.common_name }}</h1>
 
+<h1 style="color: white;">{{ plant.common_name }}</h1>
+
+ <!------------------------------------------>
+<div class="section-container">
+  <div class="row">
+
+  <div class="col-lg-5">
 <p>
   Scientific name: {{ plant.scientific_name }}
 </p>
@@ -17,10 +21,12 @@
 <p>
  Preferred Soil: {{ plant.preferred_soil}}
 </p>
-
 <img src="/static/img/{{ plant.plant_img }}">
-
-<form action="/plants/{{ plant.plant_id }}/add" name="Add Plant" method="POST">
+<a class="dropdown-item" style="color: #7f9b74" href="/"> Login to store this plant to your dashboard! </a>
+</div> <!-- /container -->
+{% if "user_email" in session %}
+<div class="col-lg-7">
+<form class="plantstatus" action="/plants/{{ plant.plant_id }}/add" name="Add Plant" method="POST">
 <label for="Growth">Choose your plant's life cycle stage: </label>
   <select name="growths">
     {% for growth in growths %}
@@ -52,8 +58,12 @@
     {% endfor %}   
   </select>
   <p>
-    <input type="submit">
+    <button class="btn btn-primary btn-block form-btn" style="background-color:rgb(119, 131, 115)" >Submit</button>
   </p>
 </form>
+</div>
+{% endif %}
+</div>
+</div> <!-- /row -->
 
 {% endblock %}

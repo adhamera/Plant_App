@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
-from datetime import datetime
+from datetime import (date, datetime)
+from werkzeug.security import (generate_password_hash, check_password_hash)
 import crud
 from jinja2 import StrictUndefined
 app = Flask(__name__)
-app.secret_key = 'super secret key'
+app.secret_key = 'plantsarethebest'
 app.jinja_env.undefined = StrictUndefined
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -115,6 +116,16 @@ def process_login():
 
         return redirect("/dashboard")
 
+# create user log out, display only when user is logged in
+@app.route("/logout")
+def logout():
+    """User must be logged in."""
+    del session["user_email"]
+  
+
+    return redirect("/")
+
+
 # display plant associated with specific user
 @app.route("/user_plants")
 def user_plants():
@@ -126,6 +137,7 @@ def user_plants():
 
     return render_template("user_plants.html", user_plants=user_plants)
 
+
 @app.route("/user_plants/<users_plants_id>")
 def user_plants_details(users_plants_id):
     """View all users' plants details."""
@@ -136,8 +148,8 @@ def user_plants_details(users_plants_id):
     user_plants_details = crud.find_user_plant_details(users_plants_id)
     print(user_plants_details)
 
-    return render_template("user_plants_details.html", user_plant=user_plants_details, user_plant_notes=user_plant_notes)
-
+    return render_template("user_plants_details.html", user_plant=user_plants_details, user_plant_notes=user_plant_notes
+)
 @app.route("/user_plants/<users_plants_id>", methods=["POST"])
 def user_plant_notes(users_plants_id):
 
@@ -152,19 +164,30 @@ def user_plant_notes(users_plants_id):
     return render_template("user_plants_details.html", user_plant=user_plant, user_plant_notes=None)
     #query user plant with plant_note_id, pass this to plant template and loop over it to show all notes in the system
 
-@app.route("/conditiondata")
-def condititiondata():
+# data for plant condition chart
+@app.route("/conditiondata/<users_plants_id>")
+def condititiondata(users_plants_id):
+    plant_notes = crud.get_note_by_user_plant_id(users_plants_id)
+    plant_condition_data = []
+    for plant_note in plant_notes:
+        date = plant_note.plant_note_date
+        plant_condition = plant_note.form_condition
+        plant_condition_data.append({'date': date.isoformat(),
+                                'plant_condition': plant_condition})
 
-    users_plants_id = session['users_plants_id']
-    condition_data = crud.get_note_by_user_plant_id(users_plants_id)
 
-    return jsonify(condition_data)
+    # users_plants_id = session['users_plants_id']
+    # current_day = date.today().strftime("%d")
+    # condition_data = crud.get_note_by_user_plant_id(users_plants_id)
+
+    return jsonify({'data': plant_condition_data})
     
 @app.route("/dashboard")
 def dashboard():
     """User can view the profile dashboard"""
 
     return render_template("dashboard.html")
+
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

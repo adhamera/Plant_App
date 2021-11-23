@@ -13,7 +13,7 @@
 {% block body %}
 <canvas class="chart" id="conditionChart"></canvas>
 <div class="container mt-4">
-	<h1>All User Plants</h1>
+	<h1 class="alluserplants">Plant Tracker</h1>
   <div class="row">
 			<div class="col-lg-3 col-md-7 col-sm-12 col-xs-12 pb-4">
 				<div class="card shadow-sm">
@@ -41,9 +41,11 @@
 </div>
 {% if user_plant_notes %}  
 	{% for note in user_plant_notes %}
-	<div>{{note.plant_note}}</div>
-	<div> {{note.form_growth}} </div>  
-	<div> {{note.form_condition}} </div>
+		{% if note %}  
+		<div>{{note.plant_note}}</div>
+		<div> {{note.form_growth}} </div>  
+		<div> {{note.form_condition}} </div>
+		{% endif %}
 	{% endfor %}
 {% endif %}
 
@@ -66,7 +68,7 @@
 	<option value="dying" SELECTED>dying</option>
   </select>
 	<textarea name="plant_note">
-		Enter text here...</textarea>
+	Enter text here</textarea>
 	<input type="submit">
   </form>
 {% endblock %}
