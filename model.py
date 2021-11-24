@@ -130,7 +130,7 @@ def example_data():
                     preferred_light="part sun",
                     watering_needs= "low" )
     
-    new_plant  = Plant(plant_id=2, 
+    aloe_vera  = Plant(plant_id=2, 
                     common_name="Aloe Vera", 
                     scientific_name="Aloe Vera", 
                     plant_img="aloe_vera.png",
@@ -174,7 +174,7 @@ def example_data():
 
 
 
-    db.session.add_all([test_user, new_plant, user_plant1, user_plant2, zebra_plant, jade, areca_palm])
+    db.session.add_all([test_user, aloe_vera, user_plant1, user_plant2, zebra_plant, jade, areca_palm])
     db.session.commit()
 
 if __name__ == "__main__":
