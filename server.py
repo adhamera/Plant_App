@@ -78,9 +78,11 @@ def register_user():
 
     email = request.form.get("email")
     password = request.form.get("password")
-
     user = crud.get_user_by_email(email)
+
     if user:
+        hashed_password = generate_password_hash(user.password, password, method='sha256')
+        user = crud.get_user_by_email(email, hashed_password)
         flash("Cannot create an account with that email. Try again.")
     else:
         crud.create_user(email, password)
@@ -106,6 +108,8 @@ def process_login():
     password = request.form.get("password")
 
     user = crud.get_user_by_email(email)
+    if user:
+        check_password_hash(user.password, password)
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
         return redirect("/")
