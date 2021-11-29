@@ -208,3 +208,44 @@ h1.alluserplants {
   @media (max-width: 750px) {
     #background-video { display: none; }
   }
+
+#conditionChart {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 25%;
+}
+
+.note {
+    background-color: white;
+    border-radius: 20px;
+    /* margin-left: 50%; */
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    padding: 5px;
+    margin: 2px;
+    overflow-wrap: break-word;
+    /* height: ; */
+}
+
+#note_div {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+h5.plant_note {
+    text-align: center;
+}
+
+form.add_note {
+    background-color: white;
+    padding:5px 15px; 
+    width: 345px;
+    border-radius: 20px;
+    margin-top: 20px;
+  
+}

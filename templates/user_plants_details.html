@@ -11,7 +11,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/randomcolor@0.6.2/randomColor.js"></script>
 {% endblock %}
 {% block body %}
-<canvas class="chart" id="conditionChart"></canvas>
 <div class="container mt-4">
 	<h1 class="alluserplants">Plant Tracker</h1>
   <div class="row">
@@ -37,19 +36,14 @@
 					</div>
 				</div>
 			</div>
+		<div class="col-lg-9 col-md-5 col-sm-12 col-xs-12">
+		<canvas class="chart" id="conditionChart"></canvas>
+	</div>
   </div>
-</div>
-{% if user_plant_notes %}  
-	{% for note in user_plant_notes %}
-		{% if note %}  
-		<div>{{note.plant_note}}</div>
-		<div> {{note.form_growth}} </div>  
-		<div> {{note.form_condition}} </div>
-		{% endif %}
-	{% endfor %}
-{% endif %}
-
-<form action="/user_plants/{{ user_plant.users_plants_id }}", method="POST">
+<div class="row">
+<div class="col-lg-4 col-md-7 col-sm-12 col-xs-12 pb-4">
+<form class="add_note" action="/user_plants/{{ user_plant.users_plants_id }}", method="POST">
+	<h5>Track Plant Progress</h5>
 <input type="hidden" id="users_plants_id" name="users_plants_id" value="{{user_plant.users_plants_id}}" >
 <label for="Growth">Choose your plant's life cycle stage: </label>
   <select name="growths">
@@ -67,12 +61,27 @@
 	<option value="wilting" SELECTED>wilting</option>
 	<option value="dying" SELECTED>dying</option>
   </select>
-	<textarea name="plant_note">
-	Enter text here</textarea>
-	<input type="submit">
+	<textarea name="plant_note">Enter text here</textarea>
+	<button class="btn btn-primary btn-block form-btn" style="background-color:rgb(119, 131, 115)" >Submit</button>
   </form>
+</div>
+<div class="col-lg-8 col-md-5 col-sm-12 col-xs-12" id="note_div">
+  {% if user_plant_notes %}  
+	{% for note in user_plant_notes %}
+		{% if note %}  
+		<div class="note">
+		<h5 class="plant_note">Plant Note</h5>
+		<p>{{note.plant_note}}</p>
+		<p> <b>Stage: </b> {{note.form_growth}} </p>  
+		<p> <b>Condition: </b> {{note.form_condition}}  </p>
+		</div>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
 {% endblock %}
-
 
 {% block after_body %}
 <script src="/static/chart.js"></script>

@@ -22,7 +22,9 @@ $.get(`/conditiondata/${user_plant_info}`, res => {
           {
             label: 'Plant Condition',
             data,  // equivalent to data: data
-            backgroundColor: "#FF0000"
+            backgroundColor: "#6E8B3D",
+            borderColor: "#6E8B3D",
+            borderDash: [5,5]
           },
         ],
       },
@@ -38,7 +40,7 @@ $.get(`/conditiondata/${user_plant_info}`, res => {
           },
           y: {
             ticks: {
-              backgroundColor: "#FF0000",
+              backgroundColor: "#6E8B3D",
               callback: function(label, index, labels) {
                 if (label in conditions_reverse) {
                   return conditions_reverse[label];
