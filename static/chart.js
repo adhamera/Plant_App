@@ -7,7 +7,7 @@ let user_plant_info = document.getElementById('users_plants_id').value
 
 $.get(`/conditiondata/${user_plant_info}`, res => {
 
-    const conditions = {'healthy': 4, 'brown leaves': 3, 'black spots': 2, 'wilting': 1, 'dying': 0} // and so on
+    const conditions = {'healthy': 4, 'brown leaves': 3, 'black spots': 2, 'wilting': 1, 'dying': 0} 
     const conditions_reverse = {4:'healthy', 3:'brown leaves', 2:'black spots', 1:'wilting', 0:'dying'}
     const data = [];
         for (const dailyCondition of res.data) {

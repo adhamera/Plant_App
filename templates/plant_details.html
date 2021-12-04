@@ -5,60 +5,88 @@
 <h1 style="color: white;">{{ plant.common_name }}</h1>
 
  <!------------------------------------------>
-<div class="section-container">
+<div class="section-container-plantform">
   <div class="row">
-
-  <div class="col-lg-5">
+{% if "user_email" in session %}
+  <div class="col-lg-5 ">
+{% else %} <div class="col-lg-12">
+{% endif %}
 <p>
-  Scientific name: {{ plant.scientific_name }}
+ <b>Scientific name: </b>  {{ plant.scientific_name }}
 </p>
-<p>
- Preferred Light: {{ plant.preferred_light }}
+<p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+  <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+</svg>
+  <b> Preferred Light: </b> {{ plant.preferred_light }}
 </p>
-<p>
- Watering Needs: {{ plant.watering_needs }}
+<p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+  <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"/>
+</svg>
+<b> Watering Needs: </b>{{ plant.watering_needs }}
 </p>
-<p>
- Preferred Soil: {{ plant.preferred_soil}}
+<p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+  <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+</svg>
+<b> Preferred Soil: </b>{{ plant.preferred_soil}}
 </p>
 <img src="/static/img/{{ plant.plant_img }}">
-<a class="dropdown-item" style="color: #7f9b74" href="/"> Login to store this plant to your dashboard! </a>
-</div> <!-- /container -->
+{% if "user_email" not in session %}
+<a class="dropdown-item" style="color: #7f9b74; text-align: center" href="/"> Login to add this plant to My Plants! </a>
+{% endif %}
+</div> 
 {% if "user_email" in session %}
-<div class="col-lg-7">
-<form class="plantstatus" action="/plants/{{ plant.plant_id }}/add" name="Add Plant" method="POST">
-<label for="Growth">Choose your plant's life cycle stage: </label>
-  <select name="growths">
+<div class="col-lg-7 my-auto">
+<form class="add-plant-form" action="/plants/{{ plant.plant_id }}/add" name="Add Plant" method="POST">
+  <div class="form-group">
+<label for="Growth" class="form-label">Choose your plant's life cycle stage: </label>
+  <select name="growths" class="form-control">
+    <option value="" disabled selected>Select your option</option>
     {% for growth in growths %}
-    <option value="{{ growth }}" SELECTED>{{ growth }}</option>
-    {% endfor %}   
+    <option value="{{ growth }}">{{ growth }}</option>
+    {% endfor %}
   </select>
-<label for="Condition">Choose your plant's condition: </label>
-  <select name="conditions">
+  </div>
+  <div class="form-group">
+<label for="Condition" class="form-label">Choose your plant's condition: </label>
+  <select name="conditions" class="form-control">
+    <option value="" disabled selected>Select your option</option>
     {% for condition in conditions %}
-    <option value="{{ condition }}" SELECTED>{{ condition }}</option>
-    {% endfor %}   
+    <option value="{{ condition }}">{{ condition }}</option>
+    {% endfor %}
   </select>
-<label for="Light">What is your plant's current light condition?</label>
-  <select name="lights">
+</div>
+  <div class="form-group">
+<label for="Light" class="form-label">What is your plant's current light condition?</label>
+  <select name="lights" class="form-control">
+    <option value="" disabled selected>Select your option</option>
     {% for light in lights %}
-    <option value="{{ light}}" SELECTED>{{ light}}</option>
-    {% endfor %}   
+    <option value="{{ light}}">{{ light}}</option>
+    {% endfor %}
   </select>
-<label for="Soil">What is your plant's current soil condition? </label>
-  <select name="soils">
+</div>
+  <div class="form-group">
+<label for="Soil" class="form-label">What is your plant's current soil condition? </label>
+  <select name="soils" class="form-control">
+    <option value="" disabled selected>Select your option</option>
     {% for soil in soils %}
-    <option value="{{ soil }}" SELECTED>{{ soil }}</option>
-    {% endfor %}   
+    <option value="{{ soil }}">{{ soil }}</option>
+    {% endfor %}
   </select>
-<label for="Water">Select the level of water your plant received: </label>
-  <select name="waterneeds">
+</div>
+  <div class="form-group">
+<label for="Water" class="form-label">Select the level of water your plant received: </label>
+  <select name="waterneeds" class="form-control">
+    <option value="" disabled selected>Select your option</option>
     {% for water in waterneeds %}
-    <option value="{{ water}}" SELECTED>{{ water }}</option>
-    {% endfor %}   
+    <option value="{{ water}}">{{ water }}</option>
+    {% endfor %}
   </select>
+</div>
   <p>
-    <button class="btn btn-primary btn-block form-btn" style="background-color:rgb(119, 131, 115)" >Submit</button>
+    <div class="form-btn-submit" style="text-align: center">
+    <button class="btn-submit" >Submit</button>
+  </div>
   </p>
 </form>
 </div>
