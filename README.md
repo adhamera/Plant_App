@@ -18,10 +18,11 @@ CSV plant data credit: https://github.com/rubui
 
 - Python (flask)
 - Jinja
-- JavaScript
+- JavaScript, chart.js
 - PostgreSQL
 - RESTful API
 - Bootstrap
+- Mapbox API
 - CSS
 - HTML
 
@@ -62,5 +63,6 @@ CSV plant data credit: https://github.com/rubui
 
 #### 3.0
 
+- Users can view directions to plant shops on a map
 - Twilio API to send plant watering reminders
 - Google maps API to implement a map showing nearby plant stores
