@@ -55,4 +55,3 @@ $.get(`/conditiondata/${user_plant_info}`, res => {
       },
     });
   });
-  

@@ -4,10 +4,13 @@ from datetime import (date, datetime)
 from werkzeug.security import (generate_password_hash, check_password_hash)
 import crud
 from jinja2 import StrictUndefined
+import os 
+mapbox = os.environ["mapbox_key"]
 app = Flask(__name__)
 app.secret_key = 'plantsarethebest'
 app.jinja_env.undefined = StrictUndefined
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 
 # route to homepage
@@ -185,12 +188,17 @@ def condititiondata(users_plants_id):
     # condition_data = crud.get_note_by_user_plant_id(users_plants_id)
 
     return jsonify({'data': plant_condition_data})
-    
+
+        
 @app.route("/dashboard")
 def dashboard():
     """User can view the profile dashboard"""
 
     return render_template("dashboard.html")
+
+@app.route("/mapbox")
+def mapboxkey():
+    return mapbox
 
 
 if __name__ == "__main__":

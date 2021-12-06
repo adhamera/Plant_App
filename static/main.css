@@ -163,12 +163,20 @@ input[type=submit] {
     bottom: 0;
     z-index: -1;
   }
-
   .login-container {
     background-color: white;
     padding: 25px;
     border: 2px solid #D3D3D3;
     border-radius: 25px;
+    margin-top: 90px;
+  }
+
+  .login-container-two {
+    background-color: white;
+    padding: 25px;
+    border: 2px solid #D3D3D3;
+    border-radius: 25px;
+    margin-top: 100px;
 }
 .login-img {
     width: 40%;
@@ -223,8 +231,9 @@ h1.alluserplants {
     vertical-align: top;
     padding: 5px;
     margin: 2px;
+    margin-bottom: 25px;
     overflow-wrap: break-word;
-    height: 250px;
+    height: 200px;
 }
 
 #note_div {
@@ -308,6 +317,36 @@ a:hover {
     -webkit-transition: 0.2s all;
 
 }
+.btn-submit-two  {
+
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: rgb(156, 182, 133);
+    color: white;
+    border-radius: 4px;
+    width: 235px;
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    border: midnightblue;
+    -webkit-transition: 0.2s all;
+
+}
+.btn-submit-three {
+
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: rgb(156, 182, 133);
+    color: white;
+    border-radius: 4px;
+    width: 205px;
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    border: midnightblue;
+    -webkit-transition: 0.2s all;
+
+}
 
 .form-btn-submit {
     width: 100%;
@@ -334,11 +373,44 @@ a:hover {
 }
 
 #title {
-    font-family: 'Corinthia', cursive;
+    font-family: 'Corinthia', cursive, bold;
     font-size: 38px;
 }
 
 #welcome {
     font-family: 'Corinthia', cursive;
     font-size: 55px;
+    font-weight: 900;
+}
+
+.mainfont {
+    font-family: sans-serif;
+    font-size: 17px;
+    color: darkslategrey;
+}
+
+.add-plant-form_two {
+    background-color: #e9e9e1;
+    padding: 40px 20px;
+    border-radius: 20px;
+    width: 275px;
+    margin-top: 45px;
+
+}
+
+.cardadjust {
+    border-radius: 30px;
+    background-color: white;
+    width: 275px;
+}
+
+.font {
+    font-family: sans-serif;
+    font-size: 17px;
+    text-align: center;
+}
+
+.search {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

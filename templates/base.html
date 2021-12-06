@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+ 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@700&family=Meow+Script&display=swap" rel="stylesheet">
@@ -28,24 +28,24 @@
   </video>
   <body class="sign">
   <!-- NAVBAR -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-default">
-      <div class="container">
-      <a class="navbar-brand" id="title" href="/"> <i class="fas fa-seedling"></i> Plantlet</a>
-      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarToggle">
-          <ul class="navbar-nav ml-auto">
-            <a class="nav-link" href="{{ url_for('show_signup_form') }}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-            </svg> Sign Up</a>
-            <a class="nav-link" href="{{ url_for('all_plants') }}">All Plants</a>
-            {% if "user_email" in session %}
-            <a class="nav-link" href="/logout">Logout</a>
-            {% endif %}
-          </div>
+   <nav class="navbar fixed-top navbar-expand-lg navbar-default">
+    <div class="container">
+    <a class="navbar-brand" id="title" href="/">Plantlet</a>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+      <ul class="navbar-nav ml-auto">
+        <a class="nav-link" href="{{ url_for('show_signup_form') }}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg> Sign Up</a>
+        <a class="nav-link" href="{{ url_for('all_plants') }}">All Plants</a>
+        {% if "user_email" in session %}
+        <a class="nav-link" href="/logout">Logout</a>
+        {% endif %}
+      </div>
     </nav>
   <!------------------------------------------>
     {% for msg in get_flashed_messages() %}

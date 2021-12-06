@@ -2,6 +2,7 @@ from unittest import TestCase
 from server import app
 from model import connect_to_db, db, example_data
 from flask import session
+from werkzeug.security import (generate_password_hash, check_password_hash)
 
 
 
@@ -28,7 +29,7 @@ class FlaskTestsBasic(TestCase):
         """Test homepage page."""
 
         result = self.client.get("/")
-        self.assertIn(b"Welcome to Plantlet!", result.data)
+        self.assertIn(b"Welcome to", result.data)
 
     def test_login(self):
         """Test login page."""
@@ -52,7 +53,19 @@ class FlaskTestsBasic(TestCase):
         self.assertIn(b"Plant Tracker", result.data)
         self.assertIn(b"full sun", result.data)
        
+    def test_user_password_hash(self):
+        """Test all hashed passwords."""
 
+        real_password = "Test@123!"
+        hash_password = generate_password_hash("Test@123!", method='sha256')
+
+        # generate_password_hash(password, method='pbkdf2:sha256', salt_length=16)
+        # The crux of each test is a call to assertEqual() to check for an expected result;
+        # assertTrue() or assertFalse() to verify a condition
+      
+        
+        result = check_password_hash(hash_password, real_password)
+        self.assertTrue(result)
 
     def tearDown(self): 
         """Drop data at end of every test."""
