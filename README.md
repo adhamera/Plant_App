@@ -23,6 +23,7 @@ CSV plant data credit: https://github.com/rubui
 - RESTful API
 - Bootstrap
 - Mapbox API
+- Unit Testing
 - CSS
 - HTML
 
@@ -30,7 +31,7 @@ CSV plant data credit: https://github.com/rubui
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
-- Werkseug - Security
+- Werkseug - Security (Hash passwords)
 
 ### JavaScript Library Used
 
