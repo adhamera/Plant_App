@@ -4,7 +4,7 @@
 
 ### Overview🌿
 
-Plant Care Made Easy.
+Plant Care Made Easy!
 
 Plantlet is a plant care application which allows users to browse indoor plants, save plants to their plant dashboard, 
 store plant data and graphically track their plant's progress over time. 
