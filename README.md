@@ -1,12 +1,12 @@
-## Project Proposal🌱
+### Plantlet Project Proposal🌱
 
-### Video Demo
+![](static/Plantlet.png)
 
-Link:
+### [Project Demo](https://youtu.be/xxH5ZIxp2Ag)
 
 ### Overview🌿
 
-Plant Care Made Easy.
+Plant Care Made Easy!
 
 Plantlet is a plant care application which allows users to browse indoor plants, save plants to their plant dashboard, 
 store plant data and graphically track their plant's progress over time. 
@@ -14,7 +14,7 @@ store plant data and graphically track their plant's progress over time.
 CSV plant data credit: https://github.com/rubui
 
 
-### Technologies Used
+### Technologies Used💻
 
 - Python (flask)
 - Jinja
@@ -23,21 +23,22 @@ CSV plant data credit: https://github.com/rubui
 - RESTful API
 - Bootstrap
 - Mapbox API
+- Unit Testing
 - CSS
 - HTML
 
-### Python Libraries Used
+### Python Libraries Used📚 
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
-- Werkseug - Security
+- Werkseug - Security (Hash passwords)
 
 ### JavaScript Library Used
 
 - Chart.js
 
 
-### Data
+### Data📈
 
 - User email, password
 - Plant common name, scientific name, image, water needs, soil and light preferences
@@ -61,8 +62,9 @@ CSV plant data credit: https://github.com/rubui
 - Users can view plant condition over time via a graph
 
 
-#### 3.0
+#### 3.0👽
 
-- Users can view directions to plant shops on a map
+- Users can view directions to nearby plant shops on a map
 - Twilio API to send plant watering reminders
-- Google maps API to implement a map showing nearby plant stores
+- User authentication features 
+- Users can delete plant notes

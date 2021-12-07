@@ -1,1 +1,0 @@
-export mapbox_key='pk.eyJ1IjoiYWRoYW1lcmEiLCJhIjoiY2t3c2lrN2Q3MGdzYjJwbzEzdDZzaXhxcCJ9.AHGAgpETrKF8OqD9amqVXw'
