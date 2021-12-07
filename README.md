@@ -2,7 +2,7 @@
 
 ### Video Demo
 
-### :movie_camera: [Demo Video](https://youtu.be/xxH5ZIxp2Ag)
+### [Project Demo](https://youtu.be/xxH5ZIxp2Ag)
 
 ### Overview🌿
 
