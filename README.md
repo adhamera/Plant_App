@@ -1,5 +1,7 @@
 ### Plantlet Project Proposal🌱
 
+![](static/Plantlet.png)
+
 ### [Project Demo](https://youtu.be/xxH5ZIxp2Ag)
 
 ### Overview🌿
