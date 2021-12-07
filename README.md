@@ -1,4 +1,4 @@
-### Project Proposal🌱
+### Plantlet Project Proposal🌱
 
 ### [Project Demo](https://youtu.be/xxH5ZIxp2Ag)
 
