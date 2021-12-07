@@ -14,7 +14,7 @@ store plant data and graphically track their plant's progress over time.
 CSV plant data credit: https://github.com/rubui
 
 
-### Technologies Used
+### Technologies Used💻
 
 - Python (flask)
 - Jinja
@@ -26,7 +26,7 @@ CSV plant data credit: https://github.com/rubui
 - CSS
 - HTML
 
-### Python Libraries Used
+### Python Libraries Used📚 
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
@@ -37,7 +37,7 @@ CSV plant data credit: https://github.com/rubui
 - Chart.js
 
 
-### Data
+### Data📈
 
 - User email, password
 - Plant common name, scientific name, image, water needs, soil and light preferences
@@ -61,7 +61,7 @@ CSV plant data credit: https://github.com/rubui
 - Users can view plant condition over time via a graph
 
 
-#### 3.0
+#### 3.0👽
 
 - Users can view directions to nearby plant shops on a map
 - Twilio API to send plant watering reminders
