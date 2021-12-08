@@ -48,14 +48,14 @@ CSV plant data credit: https://github.com/rubui
 - Plant notes data
 
 
-#### MVP
+#### MVP🌻
 - Users can login
 - Users without an account can search plant database
 - Users with an account can search for plants, view a specific plant, the plant's image & other details
 - Users can add plant to their plant dashboard
 
 
-#### 2.0 
+#### 2.0🌿
 
 - Users can store notes about their plants
 - Users can record plant growth and condition
@@ -71,5 +71,5 @@ CSV plant data credit: https://github.com/rubui
 - Users can view plant growth data
 - Users can delete plant notes
 
-#### 4.0 
+#### 4.0🚀
 - Use React
