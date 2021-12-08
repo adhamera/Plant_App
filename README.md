@@ -60,11 +60,12 @@ CSV plant data credit: https://github.com/rubui
 - Users can store notes about their plants
 - Users can record plant growth and condition
 - Users can view plant condition over time via a graph
+- Users can view directions to plant shops on a map 
+- Hash passwords
+- Implement unit testing
 
 
-#### 3.0👽
-
-- Users can view directions to nearby plant shops on a map 
+#### 3.0 (Future iterations) 👽
 - Twilio API to send plant watering reminders
 - User authentication features 
 - Add Yelp API to map so users can view closest plant shops with zipcode and read plant shop reviews
