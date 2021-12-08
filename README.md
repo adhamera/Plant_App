@@ -72,4 +72,4 @@ CSV plant data credit: https://github.com/rubui
 - Users can delete plant notes
 
 #### 4.0🚀
-- Use React
+- Implement React
