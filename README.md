@@ -64,7 +64,8 @@ CSV plant data credit: https://github.com/rubui
 
 #### 3.0👽
 
-- Users can view directions to nearby plant shops on a map
+- Users can view directions to nearby plant shops on a map 
 - Twilio API to send plant watering reminders
 - User authentication features 
+- Add Yelp API to map so users can view closest plant shops with zipcode and read plant shop reviews.
 - Users can delete plant notes
