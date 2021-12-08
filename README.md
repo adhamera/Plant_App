@@ -16,6 +16,8 @@ CSV plant data credit: https://github.com/rubui
 
 
 ### Technologies Used💻
+_______________________________________________________________________________________________________________________
+
 
 - Python (flask)
 - Jinja
@@ -29,18 +31,24 @@ CSV plant data credit: https://github.com/rubui
 - HTML
 
 ### Python Libraries Used📚 
+_______________________________________________________________________________________________________________________
+
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
 - Werkzeug Security - Hash passwords
 
 ### JavaScript Library Used
+_______________________________________________________________________________________________________________________
+
 
 - Chart.js
 ![](static/chart.png)
 
 
 ### Data📈
+_______________________________________________________________________________________________________________________
+
 
 - User email, password
 - Plant common name, scientific name, image, water needs, soil and light preferences
@@ -51,6 +59,8 @@ CSV plant data credit: https://github.com/rubui
 
 
 ### MVP🌻
+_______________________________________________________________________________________________________________________
+
 - Users can login
 - Users without an account can search plant database
 - Users with an account can search for plants, view a specific plant, the plant's image & other details
@@ -58,7 +68,7 @@ CSV plant data credit: https://github.com/rubui
 
 
 ### 2.0🪴
-
+_______________________________________________________________________________________________________________________ 
 - Users can store notes about their plants
 - Users can record plant growth and condition
 - Users can view plant condition over time via a graph
@@ -68,6 +78,8 @@ CSV plant data credit: https://github.com/rubui
 
 
 ### 3.0 (Future iterations) 👽
+_______________________________________________________________________________________________________________________
+
 - Twilio API to send plant watering reminders
 - User authentication features 
 - Add Yelp API to map so users can view closest plant shops with zipcode and read plant shop reviews
