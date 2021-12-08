@@ -70,3 +70,6 @@ CSV plant data credit: https://github.com/rubui
 - Add Yelp API to map so users can view closest plant shops with zipcode and read plant shop reviews
 - Users can view plant growth data
 - Users can delete plant notes
+
+#### 4.0 
+- Use React
