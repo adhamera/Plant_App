@@ -36,6 +36,7 @@ CSV plant data credit: https://github.com/rubui
 ### JavaScript Library Used
 
 - Chart.js
+![](static/chart.png)
 
 
 ### Data📈
