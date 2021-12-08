@@ -31,7 +31,7 @@ CSV plant data credit: https://github.com/rubui
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
-- Werkseug - Security (Hash passwords)
+- Werkzeug - Security (Hash passwords)
 
 ### JavaScript Library Used
 
