@@ -55,7 +55,7 @@ CSV plant data credit: https://github.com/rubui
 - Users can add plant to their plant dashboard
 
 
-#### 2.0🌿
+#### 2.0🪴
 
 - Users can store notes about their plants
 - Users can record plant growth and condition
