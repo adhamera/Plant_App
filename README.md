@@ -2,19 +2,22 @@
 
 ![](static/Plantlet.png)
 
-### [Project Demo](https://youtu.be/xxH5ZIxp2Ag)
+### [Project Demo Video](https://youtu.be/xxH5ZIxp2Ag)
 
 ### Overview🌿
+_______________________________________________________________________________________________________________________
 
 Plant Care Made Easy!
 
 Plantlet is a plant care application which allows users to browse indoor plants, save plants to their plant dashboard, 
-store plant data and graphically track their plant's progress over time. 
+store plant data, graphically track their plant's progress over time, and view directions to plant shops on a map!  
 
 CSV plant data credit: https://github.com/rubui
 
 
 ### Technologies Used💻
+_______________________________________________________________________________________________________________________
+
 
 - Python (flask)
 - Jinja
@@ -28,17 +31,24 @@ CSV plant data credit: https://github.com/rubui
 - HTML
 
 ### Python Libraries Used📚 
+_______________________________________________________________________________________________________________________
+
 
 - Flask Bootstrap - Style
 - Datetime - Date and Time
-- Werkseug - Security (Hash passwords)
+- Werkzeug Security - Hash passwords
 
 ### JavaScript Library Used
+_______________________________________________________________________________________________________________________
+
 
 - Chart.js
+![](static/chart.png)
 
 
 ### Data📈
+_______________________________________________________________________________________________________________________
+
 
 - User email, password
 - Plant common name, scientific name, image, water needs, soil and light preferences
@@ -48,23 +58,36 @@ CSV plant data credit: https://github.com/rubui
 - Plant notes data
 
 
-#### MVP
+### MVP🌻
+_______________________________________________________________________________________________________________________
+
 - Users can login
 - Users without an account can search plant database
 - Users with an account can search for plants, view a specific plant, the plant's image & other details
 - Users can add plant to their plant dashboard
 
 
-#### 2.0 
-
+### 2.0🪴
+_______________________________________________________________________________________________________________________ 
 - Users can store notes about their plants
 - Users can record plant growth and condition
 - Users can view plant condition over time via a graph
+- Users can view directions to plant shops on a map 
+- Hash passwords
+- Implement unit testing
 
+![](static/test_hash.png)
 
-#### 3.0👽
+### 3.0 (Future iterations) 👽
+_______________________________________________________________________________________________________________________
 
-- Users can view directions to nearby plant shops on a map
 - Twilio API to send plant watering reminders
 - User authentication features 
+- Add Yelp API to map so users can view closest plant shops with zipcode and read plant shop reviews
+- Users can view plant growth data
 - Users can delete plant notes
+
+### 4.0🚀
+_______________________________________________________________________________________________________________________
+
+- Implement React
