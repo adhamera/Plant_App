@@ -57,13 +57,9 @@ class FlaskTestsBasic(TestCase):
         """Test all hashed passwords."""
 
         real_password = "Test@123!"
-        hash_password = generate_password_hash("Test@123!", method='sha256')
+        hash_password = generate_password_hash(real_password, method='sha256')
 
-        # generate_password_hash(password, method='pbkdf2:sha256', salt_length=16)
-        # The crux of each test is a call to assertEqual() to check for an expected result;
-        # assertTrue() or assertFalse() to verify a condition
-      
-        
+        # check if real password = to generated password
         result = check_password_hash(hash_password, real_password)
         self.assertTrue(result)
 

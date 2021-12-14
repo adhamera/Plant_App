@@ -183,10 +183,6 @@ def condititiondata(users_plants_id):
                                 'plant_condition': plant_condition})
 
 
-    # users_plants_id = session['users_plants_id']
-    # current_day = date.today().strftime("%d")
-    # condition_data = crud.get_note_by_user_plant_id(users_plants_id)
-
     return jsonify({'data': plant_condition_data})
 
         
@@ -196,6 +192,7 @@ def dashboard():
 
     return render_template("dashboard.html")
 
+# route to make ajax request for mapbox
 @app.route("/mapbox")
 def mapboxkey():
     return mapbox
